@@ -1,0 +1,23 @@
+{
+  "name": "hallscheme",
+  "version": "1.0.0",
+  "description": "Cinema hall scheme widget",
+  "main": "HallScheme.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lexkrstn/schemewidget.git"
+  },
+  "keywords": [
+    "hall",
+    "scheme"
+  ],
+  "author": "Alexander Korostin <lexkrstn@gmail.com>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/lexkrstn/schemewidget/issues"
+  },
+  "homepage": "https://github.com/lexkrstn/schemewidget#readme"
+}
