@@ -1,14 +1,21 @@
 {
-  "name": "hallscheme",
+  "name": "hall-plan",
   "version": "1.0.0",
   "description": "Cinema hall scheme widget",
-  "main": "HallScheme.js",
+  "main": "src/main.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server",
+    "build": "webpack --mode development",
+    "build:prod": "webpack --mode production",
+    "watch": "webpack --watch --mode development",
+    "lint": "tslint --config tslint.json \"src/**/*.{ts,tsx}\"",
+    "test": "jest",
+    "docs": "typedoc --media demo --readme README.md --exclude **/helpers.ts --excludeExternals --excludeNotExported --excludePrivate --excludeProtected --mode file --out docs src",
+    "prepublishOnly": "concurrently \"npm run build\" \"npm run build:prod\" && npm run docs"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/lexkrstn/schemewidget.git"
+    "url": "git+ssh://git@github.com/lexkrstn/hall-plan.git"
   },
   "keywords": [
     "hall",
@@ -17,7 +24,29 @@
   "author": "Alexander Korostin <lexkrstn@gmail.com>",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/lexkrstn/schemewidget/issues"
+    "url": "https://github.com/lexkrstn/hall-plan/issues"
   },
-  "homepage": "https://github.com/lexkrstn/schemewidget#readme"
+  "homepage": "https://github.com/lexkrstn/hall-plan#readme",
+  "devDependencies": {
+    "@ahrakio/witty-webpack-declaration-files": "^1.0.3",
+    "concurrently": "^5.0.2",
+    "css-loader": "^3.4.0",
+    "file-loader": "^5.0.2",
+    "filemanager-webpack-plugin": "^2.0.5",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-flag": "^1.5.1",
+    "node-sass": "^4.13.0",
+    "raw-loader": "^4.0.0",
+    "sass-loader": "^8.0.0",
+    "terser-webpack-plugin": "^2.3.1",
+    "ts-loader": "^6.2.1",
+    "tslint": "^5.20.1",
+    "typedoc": "^0.15.7",
+    "typescript": "^3.7.4",
+    "typescript-tslint-plugin": "^0.5.5",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  }
 }

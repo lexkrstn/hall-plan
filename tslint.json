@@ -1,0 +1,15 @@
+{
+  "extends": ["tslint:latest"],
+  "rules": {
+    "arrow-parens": [true, "ban-single-arg-parens"],
+    "quotemark": [true, "single", "jsx-double"],
+    "interface-name" : [true, "never-prefix"],
+    "jsx-no-multiline-js": false,
+    "no-submodule-imports": [false],
+    "no-implicit-dependencies": [false]
+  },
+  "globals": {
+    "fetch": "readonly",
+    "CONFIG": "readonly"
+  }
+}

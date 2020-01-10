@@ -1,0 +1,157 @@
+$hall-plan-seat-height: 40px !default;
+$hall-plan-gutter: 10px !default;
+$hall-plan-seat-bg: #afe34a !default;
+$hall-plan-text-color: #363a06 !default;
+$hall-plan-border-width: 2px !default;
+$hall-plan-border-color: darken($hall-plan-seat-bg, 15%);
+
+.hall-plan {
+  --seat-height: #{$hall-plan-seat-height};
+  --gutter: #{$hall-plan-gutter};
+  --border-width: #{$hall-plan-border-width};
+  --seat-bg: #{$hall-plan-seat-bg};
+  --border-color: #{$hall-plan-border-color};
+
+  font-weight: 500;
+  color: $hall-plan-text-color;
+
+  &__rows {
+    overflow: hidden;
+  }
+
+  &__row {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: $hall-plan-gutter;
+      margin-bottom: var(--gutter);
+    }
+  }
+
+  &__row-number {
+    width: 5%;
+    max-width: 50px;
+    height: $hall-plan-seat-height;
+    height: var(--seat-height);
+    line-height: $hall-plan-seat-height;
+    line-height: var(--seat-height);
+    text-align: center;
+    font-size: 20px;
+
+    &:first-child {
+      margin-right: $hall-plan-gutter;
+      margin-right: var(--gutter);
+    }
+    &:last-child {
+      margin-left: $hall-plan-gutter;
+      margin-left: var(--gutter);
+    }
+  }
+
+  &__row-content {
+    flex: 1 0 auto;
+
+    @at-root .hall-plan--ltr & {
+      margin-left: -$hall-plan-gutter;
+      margin-left: -var(--gutter);
+    }
+
+    @at-root .hall-plan--rtl & {
+      margin-right: -$hall-plan-gutter;
+      margin-right: -var(--gutter);
+    }
+
+    &::after {
+      content: '';
+      display: table;
+      width: 0;
+      height: 0;
+      clear: both;
+    }
+  }
+
+  &__seat {
+    height: $hall-plan-seat-height;
+    height: var(--seat-height);
+    line-height: ($hall-plan-seat-height - $hall-plan-border-width * 2);
+    line-height: calc(var(--seat-height) - var(--border-width) * 2);
+    border-radius: 8px;
+    text-align: center;
+    background-color: $hall-plan-seat-bg;
+    background-color: var(--seat-bg);
+    font-size: 20px;
+    user-select: none;
+    transition: background-color 200ms ease;
+    border: $hall-plan-border-width solid $hall-plan-seat-bg;
+    border-width: var(--border-width);
+    border-color: var(--seat-bg);
+
+    &--active {
+      border-color: $hall-plan-border-color;
+      border-color: var(--border-color);
+      background-color: lighten($hall-plan-seat-bg, 10%);
+    }
+
+    @at-root .hall-plan--clickable & {
+      cursor: pointer;
+    }
+
+    @at-root .hall-plan--clickable &:hover {
+      background-color: lighten($hall-plan-seat-bg, 10%);
+    }
+  }
+
+  &__spacer {
+    height: $hall-plan-seat-height;
+    height: var(--seat-height);
+
+    @at-root .hall-plan--ltr & {
+      float: left;
+      padding-left: $hall-plan-gutter;
+      padding-left: var(--gutter);
+    }
+
+    @at-root .hall-plan--rtl & {
+      float: right;
+      padding-right: $hall-plan-gutter;
+      padding-right: var(--gutter);
+    }
+  }
+
+  &__screen-wrap {
+    display: flex;
+  }
+
+  &__screen-spacer {
+    flex: 0 0 auto;
+    width: 5%;
+    max-width: 50px;
+
+    &:first-child {
+      margin-right: $hall-plan-gutter;
+      margin-right: var(--gutter);
+    }
+
+    &:last-child {
+      margin-left: $hall-plan-gutter;
+      margin-left: var(--gutter);
+    }
+  }
+
+  &__screen {
+    flex: 1 0 auto;
+    position: relative;
+    margin-bottom: 10px;
+    margin-bottom: var(--gutter);
+  }
+
+  &__screen-text {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    color: #888;
+    font-size:0.8em;
+  }
+}
