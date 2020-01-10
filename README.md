@@ -37,4 +37,4 @@ var plan1 = new HallPlan({
 plan1.render();
 ```
 
-[API](https://lexkrstn.github.io/hall-plan)
+[API](https://lexkrstn.github.io/hall-plan/index.html)
